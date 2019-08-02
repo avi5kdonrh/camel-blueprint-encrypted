@@ -8,7 +8,12 @@
        http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0 http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.1.0.xsd">
 
 
-	<cm:property-placeholder id="test.props.placeholder" persistent-id="test.props" update-strategy="none" />
+	<cm:property-placeholder id="test.props.placeholder" persistent-id="test.props" update-strategy="none" >
+		<cm:default-properties>
+			<cm:property name="body.text" value="${body.text}"/>
+		</cm:default-properties>
+	</cm:property-placeholder>
+		
 
 	<enc:property-placeholder>
 		<enc:encryptor class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
